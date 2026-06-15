@@ -1,0 +1,27 @@
+# Action Catalog — Auto-generated index of all available actions.
+# DO NOT edit manually — this file is regenerated at boot (Boot Sequence step 8)
+# if missing or if any action file in actions/**/*.yml is newer than this file.
+#
+# Structure: categories → file → list of (id, name) pairs
+#   id   = action_id from the action YAML (snake_case)
+#   name = name from the action YAML (Title Case) — must match exactly what test cases use in steps:
+
+categories:
+
+  common:
+    file: actions/common/auth.yml
+    actions:
+      - id: login_as_admin
+        name: "Login as Admin"
+      - id: login_as_user
+        name: "Login as User"
+      - id: logout
+        name: "Logout"
+
+  navigation:
+    file: actions/common/navigation.yml
+    actions:
+      - id: navigate_to_home
+        name: "Navigate to Home"
+      # - id: navigate_to_<section>
+          #   name: "Navigate to <Section>"

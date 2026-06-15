@@ -1,0 +1,68 @@
+# Action Template
+# Copy this file to actions/<category>/<name>.yml
+# The agent auto-updates actions/action-catalog.yml at boot — no manual registration needed.
+# Multiple actions can live in the same file (grouped by feature).
+# Remove this comment block before using.
+
+actions:
+
+  - action_id: action_name_snake_case
+    name: "Action Name in Title Case"  # Must match exactly how test cases reference this action
+    description: "What this action does — one sentence"
+
+    # Optional: skip all steps if already in target state
+    pre_check: >
+      Take a snapshot first. If <target condition already met>, skip all steps and mark PASS.
+
+    # Optional: guard rail against common misuse
+    warning: >
+      Do NOT <dangerous operation> — describe what could go wrong.
+
+    parameters:
+      # Required parameter — test case MUST pass this via step_params, otherwise action FAILS
+      - name: required_param
+        description: "What this parameter controls"
+        required: true
+        # No default — test case must provide via step_params:
+        #   "Action Name":
+        #     required_param: "${testdata.<file>.<key>.<field>}"
+
+      # Optional parameter — uses default if test case does not pass via step_params
+      - name: optional_param
+        description: "What this parameter controls"
+        required: false
+        default: "${env.PARAM_NAME}"    # supports ${env.*}, ${testdata.*}, literals
+
+    steps:
+      - description: "Snapshot before acting — confirm you are on the right page"
+        tool: browser_snapshot
+
+      - description: "Navigate to target URL (only if not already there)"
+        tool: browser_navigate
+        params:
+          url: "${env.BASE_URL}/path"
+
+      - description: "Click a button or link using natural language label"
+        tool: browser_click
+        params:
+          element: "Button label or ARIA description"
+
+      - description: "Type into a text input or textarea"
+        tool: browser_type
+        params:
+          element: "Field label or placeholder text"
+          text: "${params.param_name}"
+
+      - description: "Select from a native <select> dropdown — use this, NOT browser_type"
+        tool: browser_select_option
+        params:
+          element: "Select element label"
+          value: "${params.param_name}"
+
+      - description: "Screenshot at action boundary"
+        tool: browser_take_screenshot
+
+    assertions:
+      - description: "Expected state after this action completes"
+        tool: browser_snapshot
+        check: "What should be visible in the accessibility tree"

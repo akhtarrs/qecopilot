@@ -1,0 +1,37 @@
+{
+  "_template": "report.json — consolidated run summary. Copied to reports/latest/ after every run. All fields are REQUIRED — do not omit any.",
+  "_note": "Field names are snake_case. Use 'tests' (not 'test_cases'). Top-level KPI fields are flat (not nested under 'summary').",
+  "run_id": "<suite>-YYYYMMDD-HHmmss",
+  "suite": "<suite name>",
+  "suite_display_name": "",
+  "environment": "<qa | uat | prod>",
+  "browser": "<msedge | chrome | firefox | webkit>",
+  "llm_provider": "<openai | anthropic | gemini | ollama | bedrock | copilot>",
+  "llm_model": "<model name e.g. gpt-4o, claude-sonnet-4-5>",
+  "started_at": "<ISO 8601>",
+  "completed_at": "<ISO 8601>",
+  "duration_seconds": 0.0,
+  "total": 0,
+  "passed": 0,
+  "failed": 0,
+  "skipped": 0,
+  "pass_rate": "0.0%",
+  "status": "PASSED | FAILED",
+  "tests": [
+    {
+      "id": "TC-NNN",
+      "title": "",
+      "status": "PASS | FAIL | SKIP",
+      "skip_reason": "",
+      "duration_seconds": 0.0,
+      "assertions": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "defects": [],
+      "screenshots": ["artifacts/screenshots/TC-001-login_as_admin-1.png"]
+    }
+  ],
+  "defects": []
+}

@@ -1,0 +1,30 @@
+{
+  "_instructions": "Populate this file with your application's UI knowledge before the first run. The agent reads this before planning to know exact button labels, field types, and page structure. Replace all placeholder values with your application's actual text. The agent appends new discoveries after each run.",
+  "app": "<Your Application Name>",
+  "nav": {
+    "_instructions": "Describe your app's navigation structure — sidebar, top nav, tabs, etc. Use exact labels.",
+    "structure": "<e.g. Top navigation bar with tabs: Dashboard, Work Orders, Customers, ...>",
+    "example_selector": "<e.g. .nav-link or aria-label>"
+  },
+  "pages": {
+    "_instructions": "Add one block per page or module. Use exact UI text for all labels. The agent matches these during execution.",
+    "login": {
+      "url": "${env.BASE_URL}",
+      "elements": {
+        "username_field": "<exact placeholder text of the username/email input>",
+        "password_field": "<exact placeholder text of the password input>",
+        "login_button": "<exact button text e.g. Sign In, Login, Submit>",
+        "_last_verified_run": null,
+        "_last_verified_tc": null
+      }
+    },
+    "home": {
+      "url": "${env.BASE_URL}/home",
+      "elements": {
+        "_instructions": "Add exact button labels, headings, and UI element descriptions visible on the home page",
+        "_last_verified_run": null,
+        "_last_verified_tc": null
+      }
+    }
+  }
+}

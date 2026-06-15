@@ -1,0 +1,11 @@
+# UAT Environment Configuration
+# BASE_URL and API_URL come from .env — set them to your UAT URLs there.
+environment:
+  name: uat
+  base_url: "${env.BASE_URL}"
+  api_url: "${env.API_URL}"
+  flags:
+    debug_logging: false
+    mock_payments: true
+    mock_email: false
+    mock_sms: false

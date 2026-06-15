@@ -1,0 +1,66 @@
+{
+  "_template": "execution.json — per-step MCP call record. One file per run. Schema reference only.",
+  "_note": "Use 'tests' (not 'test_cases'). Step status values are 'pass'/'fail'/'warn'/'skipped'. Duration MUST be recorded — see timing instructions below.",
+  "_timing": "Before every MCP tool call, record started_at = current timestamp. After the call returns, record completed_at. Compute duration_ms = completed_at_epoch_ms - started_at_epoch_ms. NEVER leave duration_ms as 0 unless the call was instantaneous.",
+  "run_id": "<suite>-YYYYMMDD-HHmmss",
+  "suite": "",
+  "environment": "",
+  "browser": "<from configs/ai-test-config.yml execution.browser>",
+  "started_at": "<ISO 8601>",
+  "completed_at": "<ISO 8601>",
+  "duration_seconds": 0.0,
+  "tests": [
+    {
+      "id": "TC-NNN",
+      "title": "",
+      "persona": "",
+      "status": "PASS | FAIL | SKIP",
+      "skip_reason": "",
+      "started_at": "<ISO 8601 — when first action of this TC began>",
+      "completed_at": "<ISO 8601 — when last action of this TC finished>",
+      "duration_seconds": 0.0,
+      "actions": [
+        {
+          "action_id": "<snake_case action id>",
+          "name": "<action name>",
+          "status": "PASS | FAIL | WARN",
+          "started_at": "<ISO 8601>",
+          "completed_at": "<ISO 8601>",
+          "duration_ms": 0,
+          "steps": [
+            {
+              "step_index": 1,
+              "description": "<step description from action YAML>",
+              "tool": "<mcp tool name>",
+              "params": {},
+              "result": "PASS | FAIL | WARN",
+              "started_at": "<ISO 8601>",
+              "completed_at": "<ISO 8601>",
+              "duration_ms": 0,
+              "healed": false,
+              "screenshot": "artifacts/screenshots/TC-001-login_as_admin-1.png",
+              "notes": ""
+            }
+          ],
+          "assertions": [
+            {
+              "description": "",
+              "result": "PASS | FAIL",
+              "evidence": "",
+              "evidence_screenshot": "artifacts/screenshots/TC-001-login_as_admin-assert-1.png"
+            }
+          ],
+          "notes": ""
+        }
+      ],
+      "expected": [
+        {
+          "description": "",
+          "result": "PASS | FAIL",
+          "evidence": ""
+        }
+      ],
+      "defects": []
+    }
+  ]
+}

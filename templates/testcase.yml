@@ -1,0 +1,36 @@
+# Test Case Template
+# Copy this file to testcases/<feature>/TC-NNN.yml
+# Remove this comment block before using.
+
+test_case:
+  id: TC-NNN                          # Unique ID — zero-padded (TC-001, TC-002 ...)
+  title: "Human readable test title"
+  feature: "Module or Feature name"   # e.g. Authentication, Inventory, Checkout
+  priority: high                      # high | medium | low
+  persona: admin_user                 # role label — documentation only
+  tags: [smoke, regression]           # smoke | regression | e2e | <feature-tag>
+
+  test_data:                          # Documentation only — lists data this test depends on.
+    user: users.admin_user            # → testdata/users.yml → key admin_user
+    # entity: entities.record001      # → testdata/entities.yml → key record001
+
+  preconditions:
+    - "Application is accessible at ${env.BASE_URL}"
+    - "Required test data exists"
+
+  steps:                              # Each step name must match an action name in action-catalog.yml exactly
+    - Login as Admin
+    - Navigate to Home
+    # - <Add Action Name>             # Add steps for your test case here
+
+  step_params:
+    "Login as Admin":                 # Must match step name above exactly
+      username: "${testdata.users.admin_user.username}"
+      password: "${testdata.users.admin_user.password}"
+    # "<Action Name>":
+    #   param_name: "${testdata.<file>.<key>.<field>}"
+    # If required: true param is missing from step_params → test case is SKIPPED
+
+  expected:                           # One assertion per expected outcome
+    - "User is logged in and on the home page"
+

@@ -1,0 +1,14 @@
+# Suite Template
+# Copy this file to suites/<name>.yml
+# Register the suite name in configs/ai-test-config.yml → suite.name
+# Remove this comment block before using.
+
+suite:
+  name: <suite-name>                  # must match the filename (e.g. smoke → suites/smoke.yml)
+  description: "What this suite covers — one sentence"
+  on_failure: continue                # stop | continue
+                                      # stop: halt the entire run on first TC failure
+                                      # continue: run all TCs regardless of failures
+  tests:
+    - TC-NNN                          # TC IDs in execution order — must exist in testcases/
+    # - TC-NNN

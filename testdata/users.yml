@@ -1,0 +1,23 @@
+# User Personas — Test Data
+# Credentials are resolved from .env at runtime — never hardcode passwords here.
+# Referenced as: ${testdata.users.<key>.<field>}
+# Example: ${testdata.users.admin_user.username}
+
+admin_user:
+  username: "${env.ADMIN_USER}"
+  password: "${env.ADMIN_PASSWORD}"
+  role: admin
+  display_name: "Admin User"
+
+standard_user:
+  username: "${env.STANDARD_USER}"
+  password: "${env.STANDARD_PASSWORD}"
+  role: user
+  display_name: "Standard User"
+
+# Add more personas as needed:
+# manager_user:
+#   username: "${env.MANAGER_USER}"
+#   password: "${env.MANAGER_PASSWORD}"
+#   role: manager
+#   display_name: "Manager"

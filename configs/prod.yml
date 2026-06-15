@@ -1,0 +1,12 @@
+# Production Environment Configuration
+# BASE_URL and API_URL come from .env — set them to your production URLs there.
+# WARNING: Only run verified, read-only test cases against production.
+environment:
+  name: prod
+  base_url: "${env.BASE_URL}"
+  api_url: "${env.API_URL}"
+  flags:
+    debug_logging: false
+    mock_payments: false
+    mock_email: false
+    mock_sms: false

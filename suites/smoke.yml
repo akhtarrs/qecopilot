@@ -1,0 +1,9 @@
+suite:
+  name: smoke
+  description: "Core happy-path tests — run on every deployment"
+  on_failure: continue
+  tests:
+    # Add test case IDs here in execution order.
+    # Each ID must match a file in testcases/**/<TC-ID>.yml
+    # - TC-001
+    # - TC-002

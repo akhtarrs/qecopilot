@@ -1,0 +1,15 @@
+{
+  "_template": "learning-log.json — one entry appended per run. Written to knowledge/learning-log.json.",
+  "entries": [
+    {
+      "run_id": "<run-id>",
+      "timestamp": "<ISO-8601>",
+      "suite": "<suite name>",
+      "tests_run": ["TC-001"],
+      "discoveries_count": 0,
+      "retries_count": 0,
+      "knowledge_files_updated": ["modules.json"],
+      "summary": "Brief description of what was learned this run"
+    }
+  ]
+}
